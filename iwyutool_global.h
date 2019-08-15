@@ -1,0 +1,12 @@
+#ifndef IWUYTOOL_GLOBAL_H
+#define IWUYTOOL_GLOBAL_H
+
+#include <QtGlobal>
+
+#if defined(IWYUTOOL_LIBRARY)
+#  define IWYUTOOLSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define IWYUTOOLSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // IWUYTOOL_GLOBAL_H
