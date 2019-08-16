@@ -1,11 +1,11 @@
 {
-    "Name" : "IwyuTool",
-    "Version" : "0.0.1",
-    "CompatVersion" : "0.0.1",
-    "Vendor" : "leha_bot",
-    "Copyright" : "(C) 2019 leha-bot",
-    "License" : "WTFPL",
-    "Description" : "Put a short description of your plugin here",
-    "Url" : "http://github.com/leha-bot/iwyu-qt-creator-plugin",
+    \"Name\" : \"IwyuTool\",
+    \"Version\" : \"0.0.1\",
+    \"CompatVersion\" : \"0.0.1\",
+    \"Vendor\" : \"leha_bot\",
+    \"Copyright\" : \"(C) 2019 leha-bot\",
+    \"License\" : \"WTFPL\",
+    \"Description\" : \"Put a short description of your plugin here\",
+    \"Url\" : \"http://github.com/leha-bot/iwyu-qt-creator-plugin\",
     $$dependencyList
 }
