@@ -2,9 +2,11 @@ DEFINES += IWYUTOOL_LIBRARY
 
 # IwyuTool files
 
-SOURCES +=         iwyutoolplugin.cpp
+SOURCES +=         iwyutoolplugin.cpp \
+    generaloptionpage.cpp
 
-HEADERS +=         iwyutoolplugin.h         iwyutool_global.h         iwyutoolconstants.h
+HEADERS +=         iwyutoolplugin.h         iwyutool_global.h         iwyutoolconstants.h \
+    generaloptionpage.h
 
 # Qt Creator linking
 

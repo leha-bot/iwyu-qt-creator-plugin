@@ -1,12 +1,14 @@
 #include "iwyutoolplugin.h"
+#include "generaloptionpage.h"
 #include "iwyutoolconstants.h"
 
-#include <coreplugin/icore.h>
-#include <coreplugin/icontext.h>
+#include <coreplugin/actionmanager/actioncontainer.h>
 #include <coreplugin/actionmanager/actionmanager.h>
 #include <coreplugin/actionmanager/command.h>
-#include <coreplugin/actionmanager/actioncontainer.h>
 #include <coreplugin/coreconstants.h>
+#include <coreplugin/icontext.h>
+#include <coreplugin/icore.h>
+#include <extensionsystem/pluginmanager.h>
 
 #include <QAction>
 #include <QMessageBox>
@@ -46,9 +48,11 @@ bool IwyuToolPlugin::initialize(const QStringList &arguments, QString *errorStri
     connect(action, &QAction::triggered, this, &IwyuToolPlugin::triggerAction);
 
     Core::ActionContainer *menu = Core::ActionManager::createMenu(Constants::MENU_ID);
-    menu->menu()->setTitle(tr("IwyuTool"));
+    menu->menu()->setTitle(tr(Constants::PLUGIN_NAME));
     menu->addAction(cmd);
     Core::ActionManager::actionContainer(Core::Constants::M_TOOLS)->addMenu(menu);
+
+    ExtensionSystem::PluginManager::addObject(new GeneralOptionPage);
 
     return true;
 }
