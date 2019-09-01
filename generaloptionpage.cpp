@@ -42,6 +42,7 @@ void GeneralOptionPage::saveSetting()
         QSettings *settings = Core::ICore::instance()->settings();
         settings->beginGroup("IWYUPlugin");
         settings->setValue("IWYUPath", _pageWidget->getPath());
+        settings->setValue("IWYUPKeySeq", _pageWidget->getKeySeq());
         settings->endGroup();
         settings->sync();
     }
@@ -53,6 +54,7 @@ void GeneralOptionPage::restoreSettings()
         QSettings *settings = Core::ICore::instance()->settings();
         settings->beginGroup("IWYUPlugin");
         _pageWidget->setPath(settings->value("IWYUPath", "/").toString());
+        _pageWidget->setKeySeq(settings->value("IWYUPKeySeq", "").toString());
         settings->endGroup();
     }
 }
