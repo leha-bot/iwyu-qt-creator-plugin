@@ -1,7 +1,10 @@
 #include "generaloptionpage.h"
+#include "generaloptionwidget.h"
 #include "iwyutoolconstants.h"
 
-#include <QWidget>
+#include <coreplugin/icore.h>
+
+#include <QSettings>
 
 namespace IwyuTool {
 namespace Internal {
@@ -17,17 +20,41 @@ GeneralOptionPage::GeneralOptionPage(QObject *parent)
 
 QWidget *GeneralOptionPage::widget()
 {
-    return new QWidget;
+    _pageWidget = new GeneralOptionWidget;
+    restoreSettings();
+    return _pageWidget;
 }
 
 void GeneralOptionPage::apply()
 {
     // Implement the apply botton functionality
+    saveSetting();
 }
 
 void GeneralOptionPage::finish()
 {
     // Implement the ok botton functionality
+}
+
+void GeneralOptionPage::saveSetting()
+{
+    if (_pageWidget) {
+        QSettings *settings = Core::ICore::instance()->settings();
+        settings->beginGroup("IWYUPlugin");
+        settings->setValue("IWYUPath", _pageWidget->getPath());
+        settings->endGroup();
+        settings->sync();
+    }
+}
+
+void GeneralOptionPage::restoreSettings()
+{
+    if (_pageWidget) {
+        QSettings *settings = Core::ICore::instance()->settings();
+        settings->beginGroup("IWYUPlugin");
+        _pageWidget->setPath(settings->value("IWYUPath", "/").toString());
+        settings->endGroup();
+    }
 }
 
 } // namespace Internal

@@ -27,6 +27,12 @@ IwyuToolPlugin::~IwyuToolPlugin()
 {
     // Unregister objects from the plugin manager's object pool
     // Delete members
+
+    for (auto object : _listObjects) {
+        ExtensionSystem::PluginManager::removeObject(object);
+        object->deleteLater();
+    }
+    _listObjects.clear();
 }
 
 bool IwyuToolPlugin::initialize(const QStringList &arguments, QString *errorString)
@@ -52,7 +58,11 @@ bool IwyuToolPlugin::initialize(const QStringList &arguments, QString *errorStri
     menu->addAction(cmd);
     Core::ActionManager::actionContainer(Core::Constants::M_TOOLS)->addMenu(menu);
 
-    ExtensionSystem::PluginManager::addObject(new GeneralOptionPage);
+    _listObjects.push_back(new GeneralOptionPage());
+
+    for (auto object : _listObjects) {
+        ExtensionSystem::PluginManager::addObject(object);
+    }
 
     return true;
 }

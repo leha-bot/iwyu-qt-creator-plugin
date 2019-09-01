@@ -23,6 +23,8 @@ public:
 
 private:
     void triggerAction();
+
+    QVector<QObject *> _listObjects;
 };
 
 } // namespace Internal

@@ -1,6 +1,7 @@
 #ifndef GENERALOPTIONPAGE_H
 #define GENERALOPTIONPAGE_H
 
+#include "generaloptionwidget.h"
 #include <coreplugin/dialogs/ioptionspage.h>
 
 namespace IwyuTool {
@@ -16,6 +17,11 @@ public:
     QWidget *widget();
     void apply();
     void finish();
+
+private:
+    GeneralOptionWidget *_pageWidget = nullptr;
+    void saveSetting();
+    void restoreSettings();
 };
 
 } // namespace Internal
