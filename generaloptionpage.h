@@ -18,6 +18,9 @@ public:
     void apply();
     void finish();
 
+signals:
+    void changeSettings();
+
 private:
     GeneralOptionWidget *_pageWidget = nullptr;
     void saveSetting();

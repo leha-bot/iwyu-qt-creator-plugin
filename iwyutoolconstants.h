@@ -12,6 +12,8 @@ const char OPTIONSPAGE_CATEGORY[] = "I.C++";
 const char OPTIONSPAGE_CATEGORY_CATEGORY_ICON[] = ":resources/Icon.png";
 const char OPTIONSPAGE_CATEGORY_TR_CATEGORY[] = QT_TRANSLATE_NOOP("Cpp Tool", "C++");
 
+const char WARNING[] = "IWYU.Warning";
+
 } // namespace Constants
 } // namespace Constants
 
