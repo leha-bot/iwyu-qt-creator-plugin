@@ -2,9 +2,13 @@ DEFINES += IWYUTOOL_LIBRARY
 
 # IwyuTool files
 
-SOURCES +=         iwyutoolplugin.cpp
+SOURCES +=         iwyutoolplugin.cpp \
+    generaloptionpage.cpp \
+    generaloptionwidget.cpp
 
-HEADERS +=         iwyutoolplugin.h         iwyutool_global.h         iwyutoolconstants.h
+HEADERS +=         iwyutoolplugin.h         iwyutool_global.h         iwyutoolconstants.h \
+    generaloptionpage.h \
+    generaloptionwidget.h
 
 # Qt Creator linking
 
@@ -33,10 +37,15 @@ USE_USER_DESTDIR = yes
 QTC_PLUGIN_NAME = IwyuTool
 QTC_LIB_DEPENDS +=     # nothing here at this time
 
-QTC_PLUGIN_DEPENDS +=     coreplugin
+QTC_PLUGIN_DEPENDS +=     coreplugin cppeditor
 
 QTC_PLUGIN_RECOMMENDS +=     # optional plugin dependencies. nothing here at this time
 
+
 ###### End _dependencies.pri contents ######
 
+
 include($$IDE_SOURCE_TREE/src/qtcreatorplugin.pri)
+
+FORMS += \
+    generaloptionwidget.ui
